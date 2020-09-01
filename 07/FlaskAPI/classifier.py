@@ -36,3 +36,17 @@ class Classifier(object):
         # Connect Classification-ID and Name.
         self.classes = ["burrito", "taco"]
 
+    def predict(self, img):
+        # Convert Image as Tensor.
+        x = self.transformer(img)
+
+        # Add 'batch' dimension to the front because
+        # Pytorch is always deal with some problem with Batch.
+        x = x.unsqueeze(0)
+
+        # Calculate Neural-Network's output.
+        out = self.net(x)
+        out = out.max(1)[1].item()
+
+        # Return predicted Classified-Name
+        return self.classes[out]
