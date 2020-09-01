@@ -3,10 +3,12 @@ from flask import Flask, request, jsonify
 from PIL import Image
 
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
 
 def create_app(classifier):
+    app = Flask(__name__)
+
     @app.route("/", methods=["POST"])
     def predict():
         # Get the received-file-handler.
@@ -32,5 +34,6 @@ def create_app(classifier):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app = Flask(__name__)
+    create_app(app).run(debug=True)
 
