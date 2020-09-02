@@ -15,3 +15,6 @@ RUN set -ex \
     && apt-get update \
     && apt-get install -y --no-install-recommends $deps \
     && rm -rm /var/lib/apt/lists/*
+
+ENV PKG_URL https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+ENV INSTALLER miniconda.sh
