@@ -26,4 +26,5 @@ RUN set-ex \
     && ./$INSTALLER -b -p /opt/conda3 \
     && rm $INSTALLER
 
-
+# Add Miniconda to the PATH
+ENV PATH /opt/conda3/bin:$SPAN
