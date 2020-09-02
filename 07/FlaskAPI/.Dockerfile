@@ -1,5 +1,8 @@
 FROM nvidia/cuda:9.0-base
 
+"""
+    Upload codes that executes 'Linux' only.
+"""
 # Install Minimum-Package for installing Miniconda.
 RUN set -ex \
     && deps='\
@@ -9,3 +12,6 @@ RUN set -ex \
         libgomp1 \
         libgfortran3 \
     ' \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends $deps \
+    && rm -rm /var/lib/apt/lists/*
